@@ -45,3 +45,24 @@ console.log(Object.values(tinderUser)); // very usefull , returns an array so lo
 console.log(Object.entries(tinderUser)); // give array inside array
 
 console.log(tinderUser.hasOwnProperty('isLoggedIn'));
+
+
+const course = {
+    coursename: "js in hindi",
+    price : "999",
+    courseInstructor : "akshat"
+}
+
+// course.courseInstructor  -  normal way to access values
+
+const{courseInstructor} = course  // destructuring of object
+
+console.log(courseInstructor);
+
+// {
+//     "name":"akshat",
+//     "coursename":"js in hindi",   // API JSON syntax
+//     "price":"free"
+// }
+
+

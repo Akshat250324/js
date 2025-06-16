@@ -26,10 +26,3 @@ body{
 #yellow{
     background-color: yellow;
 }
-@media (max-width: 500px) {
-  .button {
-    width: 22vw;
-    height: 22vw;
-    max-width: 80px;
-    max-height: 80px;
-}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<body>
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images"><li>
+            <img width = "200px" id="owl"src="https://imgs.search.brave.com/XzYM2rxge4J4PObcwJmmfuKXkaG14v99u7LVvbyzt-A/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAxLzIyLzA1Lzg3/LzM2MF9GXzEyMjA1/ODc2MV9UWDM2dUh6/VjRxV1Y3VTVSd09E/Z2hoS3JVY3BXRWF3/WS5qcGc" alt="owl">
+        </li>
+        <li>
+            <img width = "200px" src="https://imgs.search.brave.com/j0PjyjUbJKFqXBuJpYfDkcJlw8xOEz_xYmBpaKbyHCg/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzllL2Jm/L2E5LzllYmZhOTll/ZTc2NmJkNjdmNmQz/MTAxNzc4NzQ4NTA0/LmpwZw" alt="dog">
+        </li>
+        <li>
+            <img width = "200px" src="https://imgs.search.brave.com/adWhL2LHoBmaJkDxzfpdiR63LFb1VdkleTCKVTP-RcM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxOC8w/NS8yMy8xOC81NC90/aWdlci0zNDI0Nzkx/XzY0MC5qcGc" alt="tiger">
+        </li>
+        <li>
+            <img width = "200px" src="https://imgs.search.brave.com/bNdZVPYxtqhOvz6ZePhbTDbNMtCGnuDtU1kYvXpc3yM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzcwL2Fh/L2FhLzcwYWFhYWQ0/MTZjYTI2Mjc2Zjc5/M2RiNzc4ZmNkMzY2/LmpwZw" alt="lion">
+        </li>
+        <li>
+            <a id="google" href="https://google.com">Google</a>
+        </li>
+    </ul>
+    </div>
+</body>
+<script>
+   // document.getElementById('owl').onclick = function(){
+     //   alert('owl clicked') approach 2 , but not the best approach because it has less features
+    //}
+
+    // more approaches
+    //attachEvent()
+    //jQuery - on
+
+    // document.getElementById('owl').addEventListener('click',function(){  // best approach
+    //     alert("owl clicked again")
+    // })
+    
+
+    // what to study
+    // type, timestamp, defaultPreveted
+    //target, toElement, srcElement, currentTarget,
+    //clientX, clientY, screenX, screenY
+    //altkey, ctrlkey, shiftkey, keyCode
+
+    //  document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("clicked inside the ul");
+    // },false)
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation() - to stop bubbling
+    // },false)   // bubbling - first inner element is given as output then the outer element
+
+
+       document.getElementById('images').addEventListener('click',function(e){
+        // console.log("clicked inside the ul");
+    },true)
+
+    document.getElementById('owl').addEventListener('click',function(e){
+        console.log("owl clicked");
+    },true)   //capturing - first output element is given as output then the inner element
+
+    document.getElementById('google').addEventListener
+    ('click',function(e){
+        e.preventDefault();
+        console.log("google clicked");
+    },false)
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+        
+
+        // removeIt.parentNode.removeChild(removeIt)
+    },false)
+
+
+
+
+</script>
+</html>
